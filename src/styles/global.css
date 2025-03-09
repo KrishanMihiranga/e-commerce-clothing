@@ -9,30 +9,21 @@
     --color-black: #333;
 }
 
-html{
+html {
     font-size: 62.5%;
 }
-body{
+
+body {
     font-size: 2.1rem;
-    background-color: #FEFEFE;
+    background-color: #FFFEFE;
 }
-*{
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-.primary-text{
- @apply text-[1.5rem]
-}
-.container-layout{
-    @apply px-[14rem] py-[1.2rem]
-}
-.inner-layout{
-    @apply px-[15rem] py-[1.2rem]
-}
-.selected-nav {
-    @apply bg-black text-white px-[2rem] py-[.7rem] rounded-3xl;
-}
+
 
 :root {
     --background: oklch(1 0 0);
@@ -145,10 +136,30 @@ body{
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
+}
+
+.primary-text {
+    @apply text-[1.5rem]
+}
+
+.container-layout {
+    @apply px-[14rem] py-[1.2rem]
+}
+
+.inner-layout {
+    @apply px-[15rem] py-[1.2rem]
+}
+
+.selected-nav {
+    @apply bg-black text-white px-[2rem] py-[.7rem] rounded-3xl;
+}
+.section-gap{
+    @apply py-[8rem]
 }

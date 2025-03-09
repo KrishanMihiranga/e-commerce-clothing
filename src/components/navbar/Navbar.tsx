@@ -13,9 +13,9 @@ const Navbar = () => {
 
     return (
 
-        <nav >
+        <nav className=" sticky top-0 left-0 z-[9999999999999] shadow-none">
             <AnimatedTextBar />
-            <div className="flex items-center justify-between container-layout primary-text">
+            <div className="flex items-center justify-between container-layout primary-text bg-white">
                 <img
                     src={logo}
                     alt="Address Clothing logo"

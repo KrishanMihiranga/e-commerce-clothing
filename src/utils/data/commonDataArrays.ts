@@ -21,16 +21,16 @@ import p9 from '/images/products/p9.webp'
 import p10 from '/images/products/p10.webp'
 
 export const PopularProductsData = [
-    { id: 1, image: p1, title: 'Comfort Fit Crew Neck T-shirt' },
-    { id: 2, image: p2, title: 'Comfort Fit Crew Neck T-shirt' },
-    { id: 3, image: p3, title: 'Comfort Fit Crew Neck T-shirt' },
-    { id: 4, image: p4, title: 'Comfort Fit Crew Neck T-shirt' },
-    { id: 5, image: p5, title: 'Comfort Fit Crew Neck T-shirt' },
-    { id: 6, image: p6, title: 'Comfort Fit Crew Neck T-shirt' },
-    { id: 7, image: p7, title: 'Comfort Fit Crew Neck T-shirt' },
-    { id: 8, image: p8, title: 'Comfort Fit Crew Neck T-shirt' },
-    { id: 9, image: p9, title: 'Comfort Fit Crew Neck T-shirt' },
-    { id: 10, image: p10, title: 'Comfort Fit Crew Neck T-shirt' },
+    { id: 1, image: p1, title: 'Comfort Fit Crew Neck T-shirt', price: 3500, koko: false },
+    { id: 3, image: p3, title: 'Comfort Fit Crew Neck T-shirt', price: 5000, koko: true },
+    { id: 2, image: p2, title: 'Comfort Fit Crew Neck T-shirt', price: 1500, koko: false },
+    { id: 4, image: p4, title: 'Comfort Fit Crew Neck T-shirt', price: 900, koko: true },
+    { id: 5, image: p5, title: 'Comfort Fit Crew Neck T-shirt', price: 4300, koko: false },
+    { id: 6, image: p6, title: 'Comfort Fit Crew Neck T-shirt', price: 1250, koko: true },
+    { id: 7, image: p7, title: 'Comfort Fit Crew Neck T-shirt', price: 2999, koko: true },
+    { id: 8, image: p8, title: 'Comfort Fit Crew Neck T-shirt', price: 5000, koko: true },
+    { id: 9, image: p9, title: 'Comfort Fit Crew Neck T-shirt', price: 4000, koko: false },
+    { id: 10, image: p10, title: 'Comfort Fit Crew Neck T-shirt', price: 6590, koko: true },
 ]
 
 

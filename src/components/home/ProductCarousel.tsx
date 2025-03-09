@@ -7,16 +7,20 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
+import koko from "/images/koko.png"
 
 interface ProductDetailProps {
     id: number,
     title: string,
     image: string,
+    price: number
+    koko: boolean
 }
 
 export function ProductCarousel({ productDetail }: { productDetail: ProductDetailProps[] }) {
     return (
         <Carousel
+            opts={{align: 'center'}}
             plugins={[
                 Autoplay({
                     delay: 4000,
@@ -27,14 +31,28 @@ export function ProductCarousel({ productDetail }: { productDetail: ProductDetai
             <CarouselContent>
                 {
                     productDetail?.map((product) => (
-                        <CarouselItem key={product.id} className="lg:basis-1/5">
+                        <CarouselItem key={product.id} className="lg:basis-1/5  flex justify-center">
                             <div className="p-1">
-                                <Card className="bg-white w-[262px] h-[384px] shadow-none rounded-none">
-                                    <CardContent>
+                                <Card className="bg-white w-[260px] h-max shadow-none rounded-none border-none cursor-pointer">
+                                    <CardContent className="flex flex-col">
                                         <img src={product.image} alt={product.title} title={product.title} />
-                                        <span>
-                                            {product.title}
-                                        </span>
+                                        <span className="!pt-4"> {product.title} </span>
+
+                                        <div className="font-semibold flex items-center gap-4">
+                                            <span className="w-max">{product.price} LKR</span>
+                                            <div className="flex gap-1">
+                                                <div className="w-6 h-6 border rounded-full bg-red-500"></div>
+                                                <div className="w-6 h-6 border rounded-full bg-blue-500"></div>
+                                                <div className="w-6 h-6 border rounded-full bg-pink-500"></div>
+                                            </div>
+                                        </div>
+                                        {product?.koko && (
+                                            <div className="flex gap-2 items-center">
+                                                <span className="text-[1.3rem] text-gray-500"> or 3 payments of Rs 917 with</span>
+                                                <img src={koko} alt="koko pay logo" className="h-7" />
+                                            </div>
+                                        )}
+
                                     </CardContent>
                                 </Card>
                             </div>
@@ -42,8 +60,8 @@ export function ProductCarousel({ productDetail }: { productDetail: ProductDetai
                     ))
                 }
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="!p-5"/>
+            <CarouselNext  className="!p-5" />
         </Carousel>
     )
 }

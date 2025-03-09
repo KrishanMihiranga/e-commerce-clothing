@@ -14,9 +14,9 @@ interface WomensCollectionProps {
 }
 
 
-const BestSellingProductSection = ({ data }: { data: WomensCollectionProps }) => {
+const BestSellingProductSection = ({ data, className }: { data: WomensCollectionProps, className?: string }) => {
     return (
-        <div className="grid grid-cols-3 w-full gap-10">
+        <div className={`grid grid-cols-3 w-full gap-10 ${className ? className : ''}`}>
             <div className='relative'>
                 <div className='aspect-square overflow-hidden w-full'>
                     <img src={data?.coverImage} alt="" />
