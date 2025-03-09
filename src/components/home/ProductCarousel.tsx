@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import koko from "/images/koko.png"
-import { useNavigate } from "react-router-dom"
 
 interface ProductDetailProps {
     id: number,
@@ -19,13 +18,13 @@ interface ProductDetailProps {
 }
 
 export function ProductCarousel({ productDetail }: { productDetail: ProductDetailProps[] }) {
-    const navigate = useNavigate();
+   
 
     const handleRoute = () => {
         const category = "mens";
         const slug = "crew-neck-graphic-tee";
 
-        navigate(`/collections/${category}/products/${slug}`);
+        window.open(`/collections/${category}/products/${slug}`, "_blank");
     };
 
     return (
@@ -43,7 +42,7 @@ export function ProductCarousel({ productDetail }: { productDetail: ProductDetai
                     productDetail?.map((product) => (
                         <CarouselItem key={product.id} className="lg:basis-1/5  flex justify-center">
                             <div className="p-1">
-                                <Card className="bg-white w-[260px] h-max shadow-none rounded-none border-none cursor-pointer" onClick={handleRoute}>
+                                <Card className=" bg-transparent w-[260px] h-max shadow-none rounded-none border-none cursor-pointer" onClick={handleRoute}>
                                     <CardContent className="flex flex-col">
                                         <img src={product.image} alt={product.title} title={product.title} />
                                         <span className="!pt-4"> {product.title} </span>

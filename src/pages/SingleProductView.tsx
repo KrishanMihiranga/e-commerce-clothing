@@ -9,7 +9,7 @@ import DeliveryInfoCard from "@/components/home/DeliveryInfoCard";
 import ProductSection from "@/components/home/ProductSection";
 
 const SingleProductView = () => {
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState<number>(1);
 
     const increaseQty = () => setQuantity((prev) => prev + 1);
     const decreaseQty = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));

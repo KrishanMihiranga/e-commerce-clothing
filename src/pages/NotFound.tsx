@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {
+    useEffect(() => { window.scrollTo(0, 0); }, []);
     return (
         <div className="flex flex-col items-center justify-center min-h-[85vh] text-center">
             <h1 className="text-[20rem] font-bold text-red-500">404</h1>

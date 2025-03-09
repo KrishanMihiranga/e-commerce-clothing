@@ -24,12 +24,13 @@ const ResultPage = () => {
     };
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         setFetching(true);
         setData(PopularProductsData)
         setFetching(false);
     }, []);
-
-
+    
+    useEffect(() => { window.scrollTo(0, 0); }, []);
 
     return (
         <>

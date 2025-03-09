@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import bgVideo from '/video/home_video.mp4'
 import popularProduct from '/images/tshirt/front.webp'
 import { BsArrowRight } from 'react-icons/bs';
@@ -11,7 +11,8 @@ import BestSellingProductSection from '@/components/home/BestSellingProductSecti
 const Home = () => {
 
     const [isLoaded, setIsLoaded] = useState(false);
-
+    useEffect(() => { window.scrollTo(0, 0); }, []);
+    
     const handleVideoLoad = () => {
         setIsLoaded(true);
     };

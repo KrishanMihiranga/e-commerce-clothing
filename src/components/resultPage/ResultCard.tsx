@@ -1,6 +1,5 @@
 import { Card, CardContent } from "../ui/card";
 import koko from "/images/koko.png";
-import { useNavigate } from "react-router-dom";
 
 interface DataProps {
     id: number;
@@ -13,13 +12,12 @@ interface DataProps {
 
 
 const ResultCard = ({ product }: { product: DataProps }) => {
-    const navigate = useNavigate();
 
     const handleRoute = () => {
         const category = "mens";
         const slug = "crew-neck-graphic-tee";
     
-        navigate(`/collections/${category}/products/${slug}`);
+        window.open(`/collections/${category}/products/${slug}`, "_blank");
     };
 
 
