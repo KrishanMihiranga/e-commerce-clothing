@@ -3,7 +3,7 @@ import bgVideo from '/video/home_video.mp4'
 import popularProduct from '/images/tshirt/front.webp'
 import { BsArrowRight } from 'react-icons/bs';
 import DeliveryInfoCard from '../components/home/DeliveryInfoCard';
-import { PopularProductsData, StaticDeliveryCardData } from '../utils/data/commonDataArrays';
+import { MensCollection, PopularProductsData, StaticDeliveryCardData, WomensCollection } from '../utils/data/commonDataArrays';
 import ProductSection from '@/components/home/ProductSection';
 import BestSellingProductSection from '@/components/home/BestSellingProductSection';
 
@@ -45,9 +45,9 @@ const Home = () => {
                 ))}
             </div>
             <ProductSection title='Popular right now' productsList={PopularProductsData}/>
-            <BestSellingProductSection />
+            <BestSellingProductSection data={MensCollection}/>
             <ProductSection title="Latest form men's" productsList={PopularProductsData}/>
-            <BestSellingProductSection />
+            <BestSellingProductSection data={WomensCollection} />
             <ProductSection title="Latest form women's" productsList={PopularProductsData}/>
         </section>
 
