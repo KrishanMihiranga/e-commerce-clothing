@@ -1,8 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
+import ResultCard from "@/components/resultPage/ResultCard";
 import { PopularProductsData } from "@/utils/data/commonDataArrays";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import koko from "/images/koko.png";
 
 interface DataProps {
     id: number;
@@ -30,7 +29,7 @@ const ResultPage = () => {
         setFetching(false);
     }, []);
 
-   
+
 
     return (
         <>
@@ -43,30 +42,9 @@ const ResultPage = () => {
                     <h1 className="text-[10rem] font-bold">{titles[category || "mens"]}</h1>
                     <div className="w-full grid grid-cols-4 place-items-center gap-10">
                         {data.map((product) => (
-                            <div key={product.id} className="p-1">
-                                <Card className="w-[260px] h-max shadow-none rounded-none border-none cursor-pointer !my-[5rem] bg-transparent">
-                                    <CardContent className="flex flex-col">
-                                        <img src={product.image} alt={product.title} title={product.title} />
-                                        <span className="!pt-4">{product.title}</span>
-
-                                        <div className="font-semibold flex items-center gap-4">
-                                            <span className="w-max">{product.price} LKR</span>
-                                            <div className="flex gap-1">
-                                                <div className="w-6 h-6 border rounded-full bg-red-500"></div>
-                                                <div className="w-6 h-6 border rounded-full bg-blue-500"></div>
-                                                <div className="w-6 h-6 border rounded-full bg-pink-500"></div>
-                                            </div>
-                                        </div>
-                                        {product?.koko && (
-                                            <div className="flex gap-2 items-center">
-                                                <span className="text-[1.3rem] text-gray-500"> or 3 payments of Rs 917 with</span>
-                                                <img src={koko} alt="koko pay logo" className="h-7" />
-                                            </div>
-                                        )}
-                                    </CardContent>
-                                </Card>
-                            </div>
+                            <ResultCard key={product.id} product={product} />
                         ))}
+
                     </div>
                 </section>
             )}

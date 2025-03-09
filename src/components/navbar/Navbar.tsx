@@ -1,5 +1,5 @@
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import AnimatedTextBar from "./AnimatedTextBar";
 import logo from "/images/address-logo-dark.webp"
 import { useEffect, useState } from "react";

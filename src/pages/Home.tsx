@@ -48,9 +48,9 @@ const Home = () => {
             </div>
             <ProductSection title='Popular right now' productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' />
             <BestSellingProductSection data={MensCollection} className='section-gap container-layout' />
-            <ProductSection title="Latest form men's" productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' />
+            <ProductSection title="Latest from men's" productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' />
             <BestSellingProductSection data={WomensCollection} className='section-gap container-layout' />
-            <ProductSection title="Latest form women's" productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' />
+            <ProductSection title="Latest from women's" productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' />
         </section>
 
     )
