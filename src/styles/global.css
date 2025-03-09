@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
+
 @theme {
     --color-mint-500: oklch(0.72 0.11 178);
-    --color-black: #28282B;
+    --color-black: #333;
 }
 
 html{
@@ -17,7 +18,7 @@ body{
     padding: 0;
 }
 .primary-text{
- @apply text-[1.65rem]
+ @apply text-[1.5rem]
 }
 .container-layout{
     @apply px-[12rem] py-[1.2rem]
