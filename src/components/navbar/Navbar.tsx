@@ -1,8 +1,7 @@
 
 import { Link, useLocation } from "react-router-dom";
 import AnimatedTextBar from "./AnimatedTextBar";
-import logo from "../../../public/images/address-logo-dark.webp"
-import '../../styles/navBar.css'
+import logo from "/images/address-logo-dark.webp"
 import { useEffect, useState } from "react";
 const Navbar = () => {
     const location = useLocation();

@@ -1,5 +1,0 @@
-@import "./global.css";
-
-.selected-nav {
-    @apply bg-black text-white px-[2rem] py-[.7rem] rounded-3xl;
-}
