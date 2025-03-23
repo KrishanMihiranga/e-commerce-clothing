@@ -6,17 +6,32 @@ import DeliveryInfoCard from '../components/home/DeliveryInfoCard';
 import { MensCollection, PopularProductsData, StaticDeliveryCardData, WomensCollection } from '../utils/data/commonDataArrays';
 import ProductSection from '@/components/home/ProductSection';
 import BestSellingProductSection from '@/components/home/BestSellingProductSection';
+import { GetProducts } from '@/service/ProductService';
+import { ProductProps } from '@/lib/interfaces';
 
 
 const Home = () => {
-
     const [isLoaded, setIsLoaded] = useState(false);
+    const [data, setData] = useState<ProductProps[]>([]);
+
     useEffect(() => { window.scrollTo(0, 0); }, []);
-    
+
     const handleVideoLoad = () => {
         setIsLoaded(true);
     };
 
+    useEffect(() => {
+        getData();
+    }, [])
+
+    const getData = async () => {
+        await GetProducts().then((product) => {
+            setData(product?.data || []);
+            console.log(product?.data);
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
     return (
         <section className="primary-text flex flex-col items-center justify-between gap-10">
             <div className=' flex flex-col items-center justify-between gap-10 w-full container-layout'>
@@ -47,11 +62,11 @@ const Home = () => {
                     ))}
                 </div>
             </div>
-            <ProductSection title='Popular right now' productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' />
+            <ProductSection title='Popular right now' productsList={data} className='section-gap container-layout bg-[#f8f8f8]' />
             <BestSellingProductSection data={MensCollection} className='section-gap container-layout' />
-            <ProductSection title="Latest from men's" productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' />
+            {/* <ProductSection title="Latest from men's" productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' /> */}
             <BestSellingProductSection data={WomensCollection} className='section-gap container-layout' />
-            <ProductSection title="Latest from women's" productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' />
+            {/* <ProductSection title="Latest from women's" productsList={PopularProductsData} className='section-gap container-layout bg-[#f8f8f8]' /> */}
         </section>
 
     )

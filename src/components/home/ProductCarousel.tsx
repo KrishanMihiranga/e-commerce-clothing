@@ -8,23 +8,15 @@ import {
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import koko from "/images/koko.png"
+import { ProductProps } from "@/lib/interfaces"
 
-interface ProductDetailProps {
-    id: number,
-    title: string,
-    image: string,
-    price: number
-    koko: boolean
-}
 
-export function ProductCarousel({ productDetail }: { productDetail: ProductDetailProps[] }) {
-   
+export function ProductCarousel({ productDetail }: { productDetail: ProductProps[] }) {
 
-    const handleRoute = () => {
-        const category = "mens";
-        const slug = "crew-neck-graphic-tee";
 
-        window.open(`/collections/${category}/products/${slug}`, "_blank");
+    const handleRoute = ({ category, slug }: { category: string, slug: string }) => {
+
+        window.open(`/collections/${category.toLowerCase()}/products/${slug}`, "_blank");
     };
 
     return (
@@ -40,22 +32,24 @@ export function ProductCarousel({ productDetail }: { productDetail: ProductDetai
             <CarouselContent>
                 {
                     productDetail?.map((product) => (
-                        <CarouselItem key={product.id} className="lg:basis-1/5  flex justify-center">
+                        <CarouselItem key={product.slug} className="lg:basis-1/5  flex justify-center">
                             <div className="p-1">
-                                <Card className=" bg-transparent w-[260px] h-max shadow-none rounded-none border-none cursor-pointer" onClick={handleRoute}>
+                                <Card className=" bg-transparent w-[260px] h-max shadow-none rounded-none border-none cursor-pointer" onClick={() => { handleRoute({ category: product?.mainCategoryKey, slug: product?.slug }) }}>
                                     <CardContent className="flex flex-col">
-                                        <img src={product.image} alt={product.title} title={product.title} />
-                                        <span className="!pt-4"> {product.title} </span>
+                                        <img src={product?.ProductDetails?.[0]?.urls[0]?.url} alt={product.name} title={product.name} />
+                                        <span className="!pt-4"> {product.name} </span>
 
                                         <div className="font-semibold flex items-center gap-4">
-                                            <span className="w-max">{product.price} LKR</span>
+                                            <span className="w-max">{product?.ProductDetails[0]?.price} LKR</span>
                                             <div className="flex gap-1">
-                                                <div className="w-6 h-6 border rounded-full bg-red-500"></div>
-                                                <div className="w-6 h-6 border rounded-full bg-blue-500"></div>
-                                                <div className="w-6 h-6 border rounded-full bg-pink-500"></div>
+                                                {
+                                                    product?.ProductDetails?.map((product) => (
+                                                        <div className="w-6 h-6 border rounded-full" style={{ backgroundColor: product?.colorKey?.hex }} key={product?.colorKey?.key}></div>
+                                                    ))
+                                                }
                                             </div>
                                         </div>
-                                        {product?.koko && (
+                                        {product?.isKokoAvailable && (
                                             <div className="flex gap-2 items-center">
                                                 <span className="text-[1.3rem] text-gray-500"> or 3 payments of Rs 917 with</span>
                                                 <img src={koko} alt="koko pay logo" className="h-7" />
